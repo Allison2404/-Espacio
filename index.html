@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>+Espacio - Muebles a medida</title>
+  <meta name="description" content="+Espacio - Armarios, roperos y zapateras en melamina a medida. Diseño digital y instalación.">
+  <style>
+    :root{
+      --verde:#3b7d3b;
+      --marron:#7a5230;
+      --bg:#fdfbf7;
+      --text:#2f2f2f;
+    }
+    body{font-family:Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:var(--text);line-height:1.4}
+    header{background:linear-gradient(90deg,var(--verde),#2f8a45);color:white;padding:18px}
+    .container{max-width:960px;margin:24px auto;padding:0 16px}
+    h1{margin:0;font-size:28px}
+    .hero{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+    .hero p{margin:8px 0}
+    .card{background:white;border-radius:8px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .btn{display:inline-block;background:var(--verde);color:white;padding:10px 14px;border-radius:6px;text-decoration:none}
+    .promo{background:linear-gradient(90deg,var(--marron),#8a5a39);color:white;padding:12px;border-radius:8px}
+    .model-thumb{height:140px;background:linear-gradient(180deg,#e9f7ec,#f7efe6);display:flex;align-items:center;justify-content:center;border-radius:6px}
+    footer{background:#2b2b2b;color:#eee;padding:14px;text-align:center;margin-top:28px}
+    label{font-weight:600;font-size:14px}
+    .small{font-size:13px;color:#555}
+    input[type=file]{display:block}
+    @media (max-width:520px){h1{font-size:22px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div><h1>+Espacio</h1><div class="small">Muebles a medida • Diseño digital • Instalación</div></div>
+        <div class="small">Tel: +51 912 345 678<br>Email: contacto@masespacio.pe</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-label="Presentacion">
+      <div style="flex:1">
+        <h2>Optimiza tu hogar con muebles a medida</h2>
+        <p class="small">Armarios, roperos y zapateras en melamina, diseñados digitalmente en AutoCAD y fabricados a medida. Personaliza color, medidas y acabados.</p>
+        <p><a class="btn" href="#ia">Probar vista con IA</a> <a class="btn" href="#catalogo" style="background:var(--marron)">Ver modelos</a></p>
+      </div>
+      <div style="width:320px">
+        <div class="card">
+          <div class="promo"><strong>Promoción:</strong> 2 modelos + instalación gratis (hasta fin de mes)</div>
+          <p class="small" style="margin-top:10px">Visítanos en La Molina y solicita asesoría gratuita.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo" style="margin-top:20px">
+      <h3>Modelos destacados</h3>
+      <div class="grid" style="margin-top:12px">
+        <div class="card">
+          <div class="model-thumb">Armario modular</div>
+          <h4>Armario</h4>
+          <p class="small">Ideal para dormitorios compactos. Diseño modular y compartimentos ajustables.</p>
+        </div>
+        <div class="card">
+          <div class="model-thumb">Ropero compacto</div>
+          <h4>Ropero</h4>
+          <p class="small">Puertas corredizas y cajones para optimizar espacio.</p>
+        </div>
+        <div class="card">
+          <div class="model-thumb">Zapatero vertical</div>
+          <h4>Zapatero</h4>
+          <p class="small">Diseño vertical para ordenar entradas y pasadizos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ia" style="margin-top:22px">
+      <h3>Vista previa con IA (simulada)</h3>
+      <div class="card" style="margin-top:8px">
+        <p class="small">Sigue estos pasos sencillos: 1) Elige modelo y color. 2) Toma una foto del lugar donde irá el mueble. 3) Sube la foto y genera la vista previa. (En el producto final conectamos esta parte a un servicio de IA y generamos el render/archivo para AutoCAD).</p>
+        <form id="iaForm">
+          <label for="model">Selecciona modelo</label>
+          <select id="model" name="model" style="width:100%;padding:8px;margin:8px 0">
+            <option value="armario">Armario</option>
+            <option value="ropero">Ropero</option>
+            <option value="zapatero">Zapatero</option>
+          </select>
+
+          <label for="color">Selecciona color</label>
+          <select id="color" name="color" style="width:100%;padding:8px;margin:8px 0">
+            <option value="verde">Verde</option>
+            <option value="marron">Marrón</option>
+          </select>
+
+          <label for="photo">Sube la foto del espacio</label>
+          <input id="photo" type="file" accept="image/*" style="margin:8px 0">
+
+          <button type="button" onclick="simulateAI()" class="btn" style="margin-top:8px">Generar vista (simulada)</button>
+        </form>
+
+        <div id="preview" style="margin-top:12px"></div>
+      </div>
+    </section>
+
+    <section style="margin-top:22px">
+      <div class="card">
+        <h4>Paso a paso para solicitar tu modelo</h4>
+        <ol class="small">
+          <li>Elige modelo y color.</li>
+          <li>Sube foto del lugar o pide visita técnica.</li>
+          <li>Revisamos y hacemos diseño en AutoCAD.</li>
+          <li>Confirmas medidas y presupuesto.</li>
+          <li>Fabricación, entrega e instalación.</li>
+          <li>Garantía y servicio posventa.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section style="margin-top:22px" class="card">
+      <h4>Contacto</h4>
+      <p class="small">Tel: <a href="tel:+51912345678">+51 912 345 678</a></p>
+      <p class="small">Email: <a href="mailto:contacto@masespacio.pe">contacto@masespacio.pe</a></p>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container small">
+      +Espacio • Muebles a medida • La Molina — Lima<br>
+      Horario: Lun-Vie 9:00 - 18:00
+    </div>
+  </footer>
+
+  <script>
+    function simulateAI(){
+      var preview = document.getElementById('preview');
+      preview.innerHTML = '';
+      var model = document.getElementById('model').value;
+      var color = document.getElementById('color').value;
+      var file = document.getElementById('photo').files[0];
+      if(!file){ preview.innerHTML = '<div class="small" style="color:#b33">Sube una foto para generar la vista.</div>'; return; }
+      var reader = new FileReader();
+      reader.onload = function(e){
+        var img = document.createElement('img');
+        img.src = e.target.result;
+        img.style.maxWidth = '100%';
+        img.style.display = 'block';
+        img.style.opacity = '0.9';
+        img.style.borderRadius = '6px';
+        preview.appendChild(img);
+        var overlay = document.createElement('div');
+        overlay.style.position='relative';
+        overlay.style.marginTop='8px';
+        overlay.innerHTML = '<div class="card small">Vista simulada: '+model+' en color '+color+'. En versión final se generará un render y archivos AutoCAD.</div>';
+        preview.appendChild(overlay);
+      };
+      reader.readAsDataURL(file);
+    }
+  </script>
+</body>
+</html>
