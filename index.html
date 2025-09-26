@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>+Espacio - Muebles a medida</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--verde-claro:#8fca98;--marron:#7a5230;--negro:#000;--fondo:#ffffff}
+    body{font-family:'Quicksand',sans-serif;margin:0;background:var(--fondo);color:var(--negro)}
+    header{background:linear-gradient(90deg,var(--verde-claro),#bfe6c8);color:white;padding:18px}
+    .container{max-width:1100px;margin:20px auto;padding:0 16px}
+    h1{margin:0;font-size:30px}
+    .hero{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+    .btn{background:var(--verde-claro);color:white;padding:10px 14px;border-radius:8px;text-decoration:none;display:inline-block}
+    .btn-brown{background:var(--marron)}
+    .card{background:#fff;border-radius:10px;padding:14px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+    .slider{position:relative;overflow:hidden;border-radius:10px}
+    .slides{display:flex;transition:transform 0.45s ease}
+    .slide{min-width:100%;padding:12px;box-sizing:border-box}
+    .thumb{height:260px;background:#f3f3f3;display:flex;align-items:center;justify-content:center;border-radius:8px;overflow:hidden}
+    .steps{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .step{flex:1;min-width:140px;background:linear-gradient(180deg,#fff,#f7f7f7);padding:12px;border-radius:10px;text-align:center}
+    .whatsapp{position:fixed;right:18px;bottom:18px;background:#25D366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,0.2);text-decoration:none}
+    footer{background:#222;color:#ddd;padding:18px;text-align:center;margin-top:28px}
+    .socials a{margin:0 6px;color:var(--negro);text-decoration:none;font-weight:600}
+    .contact-btn{display:inline-block;background:var(--marron);color:white;padding:10px 14px;border-radius:8px;text-decoration:none}
+    @media(max-width:600px){.steps{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <h1>+Espacio</h1>
+        <div style="font-size:14px;margin-top:6px">Muebles a medida • Diseño en AutoCAD • Instalación</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-weight:600">Tel: <a href="tel:+51912345678" style="color:white;text-decoration:underline">+51 912 345 678</a></div>
+        <div style="font-weight:600">Email: <a href="mailto:tuespacio@gmail.com" style="color:white;text-decoration:underline">tuespacio@gmail.com</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-label="Presentacion" style="margin-top:14px">
+      <div style="flex:1">
+        <h2 style="font-size:26px;margin-bottom:6px">Optimiza tu hogar con muebles en melamina</h2>
+        <p style="margin:0 0 10px">Armarios, roperos y zapateras personalizados. Visualiza el diseño antes de fabricar.</p>
+        <a class="btn" href="#ia">Probar IA (simulado)</a>
+        <a class="btn btn-brown" href="#catalogo" style="margin-left:8px">Ver modelos</a>
+      </div>
+      <div style="width:320px">
+        <div class="card">
+          <div style="background:var(--marron);color:white;padding:10px;border-radius:8px;font-weight:700">Promoción</div>
+          <p style="margin:8px 0">2 modelos + instalación GRATIS (hasta fin de mes)</p>
+          <a class="contact-btn" href="mailto:tuespacio@gmail.com">Contáctanos</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo" style="margin-top:22px">
+      <h3>Galería – Desliza para ver</h3>
+      <div class="card slider" style="margin-top:12px">
+        <div class="slides" id="slides">
+          <div class="slide">
+            <div class="thumb"><img src="images/armario.svg" alt="Armario" style="width:100%;height:100%;object-fit:cover"/></div>
+            <h4>Armario Modular</h4>
+            <p class="small">Configuraciones internas y acabados a medida.</p>
+          </div>
+          <div class="slide">
+            <div class="thumb"><img src="images/ropero.svg" alt="Ropero" style="width:100%;height:100%;object-fit:cover"/></div>
+            <h4>Ropero Compacto</h4>
+            <p class="small">Puertas corredizas y cajoneras internas.</p>
+          </div>
+          <div class="slide">
+            <div class="thumb"><img src="images/zapatero.svg" alt="Zapatero" style="width:100%;height:100%;object-fit:cover"/></div>
+            <h4>Zapatero Vertical</h4>
+            <p class="small">Maximiza espacio en entradas y pasillos.</p>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button class="btn" onclick="prevSlide()">◀</button>
+        <button class="btn" onclick="nextSlide()">▶</button>
+      </div>
+    </section>
+
+    <section id="ia" style="margin-top:22px">
+      <h3>Vista previa con IA (simulado)</h3>
+      <div class="card" style="margin-top:8px">
+        <p class="small">Carga una foto del espacio y selecciona modelo y color. Actualmente esta función muestra una simulación y no un render final.</p>
+        <label for="model">Modelo</label>
+        <select id="model" style="width:100%;padding:8px;margin:8px 0"><option>Armario</option><option>Ropero</option><option>Zapatero</option></select>
+        <label for="color">Color</label>
+        <select id="color" style="width:100%;padding:8px;margin:8px 0"><option>Verde claro</option><option>Marrón</option></select>
+        <label for="photo">Sube foto</label>
+        <input id="photo" type="file" accept="image/*" style="margin:8px 0"/>
+        <button class="btn" onclick="simulateAI()">Generar (simulado)</button>
+        <div id="preview" style="margin-top:12px"></div>
+      </div>
+    </section>
+
+    <section style="margin-top:22px" class="card">
+      <h3>Cómo solicitar tu modelo</h3>
+      <div class="steps" style="margin-top:10px">
+        <div class="step">
+          <svg width="48" height="48" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="var(--verde-claro)"/></svg>
+          <div style="font-weight:700;margin-top:8px">1. Elige modelo</div>
+        </div>
+        <div class="step">
+          <svg width="48" height="48" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" fill="var(--marron)"/></svg>
+          <div style="font-weight:700;margin-top:8px">2. Sube foto o pedimos visita</div>
+        </div>
+        <div class="step">
+          <svg width="48" height="48" viewBox="0 0 24 24"><path d="M4 20v-6l8-5 8 5v6" fill="var(--verde-claro)"/></svg>
+          <div style="font-weight:700;margin-top:8px">3. Diseño en AutoCAD</div>
+        </div>
+        <div class="step">
+          <svg width="48" height="48" viewBox="0 0 24 24"><path d="M12 2v6" stroke="black" stroke-width="2" stroke-linecap="round"/></svg>
+          <div style="font-weight:700;margin-top:8px">4. Fabricación & Entrega</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:22px;display:flex;gap:16px;flex-wrap:wrap">
+      <div class="card" style="flex:1;min-width:260px">
+        <h4>Contacto</h4>
+        <p class="small">Tel: <a href="tel:+51912345678">+51 912 345 678</a></p>
+        <p class="small">Email: <a href="mailto:tuespacio@gmail.com">tuespacio@gmail.com</a></p>
+        <p style="margin-top:8px"><a class="contact-btn" href="mailto:tuespacio@gmail.com">Enviar correo</a></p>
+        <p style="margin-top:8px"><a class="btn" href="https://wa.me/51912345678" target="_blank">Contacto por WhatsApp</a></p>
+        <div style="margin-top:10px" class="socials">
+          Síguenos: 
+          <a href="https://facebook.com" target="_blank">Facebook</a> |
+          <a href="https://instagram.com" target="_blank">Instagram</a>
+        </div>
+      </div>
+      <div class="card" style="flex:1;min-width:260px">
+        <h4>Promociones</h4>
+        <p class="small"><strong>Pack Duo:</strong> 2 modelos + instalación gratis</p>
+        <p class="small"><strong>Financiamiento:</strong> Hasta 6 cuotas (sujeto a evaluación)</p>
+      </div>
+    </section>
+
+  </main>
+
+  <a class="whatsapp" href="https://wa.me/51912345678" target="_blank" title="WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M20.5 3.5a11 11 0 10-9.2 18.9l-1.2 4.2 4.3-1.1A11 11 0 0020.5 3.5z"/><path d="M17 15.2c-.3-.1-1.8-.9-2.1-1-.3-.2-.6-.1-.9.1-.3.2-1.2.9-1.5 1.1-.3.2-.5.1-.9-.2-.4-.3-1.5-1.1-2.5-2.9-.2-.3 0-.6.2-.8.2-.2.3-.4.5-.6.2-.2.3-.4.5-.6.2-.1.3-.2.5-.2.2 0 .4 0 .6 0 .2 0 .5 0 .8.1.3.1.9.2 1.1.1.2-.1.5-.2.8-.4.3-.2.8-.6 1.1-.9.4-.3.8-.5 1.1-.6.3-.1.6-.1.9-.1.3 0 .6 0 .9.1.3.1.7.3 1 .6.3.3.6.6.8 1 .2.4.3.9.3 1.4 0 .5-.1 1-.3 1.5-.2.5-.6 1-1 1.4z"/></svg>
+  </a>
+
+  <footer>
+    <div style="padding:14px 8px">
+      +Espacio • La Molina — Lima • tuespacio@gmail.com
+    </div>
+  </footer>
+
+<script>
+let current = 0;
+const slides = document.getElementById('slides');
+function showSlide(i){
+  const count = slides.children.length;
+  if(i<0) i = count-1;
+  if(i>=count) i = 0;
+  current = i;
+  slides.style.transform = 'translateX(' + (-i*100) + '%)';
+}
+function nextSlide(){ showSlide(current+1) }
+function prevSlide(){ showSlide(current-1) }
+function simulateAI(){
+  const file = document.getElementById('photo').files[0];
+  const preview = document.getElementById('preview');
+  preview.innerHTML = '';
+  if(!file){ preview.innerHTML = '<div style="color:#b33">Sube una foto para generar la vista.</div>'; return; }
+  const reader = new FileReader();
+  reader.onload = function(e){
+    const img = document.createElement('img');
+    img.src = e.target.result;
+    img.style.maxWidth = '100%';
+    img.style.display = 'block';
+    img.style.borderRadius = '8px';
+    preview.appendChild(img);
+    const info = document.createElement('div');
+    info.className='card';
+    info.style.marginTop='8px';
+    info.innerHTML = '<strong>Simulación:</strong> Vista generada (mock). Para render y AutoCAD se requiere integración con servicio de IA.';
+    preview.appendChild(info);
+  }
+  reader.readAsDataURL(file);
+}
+</script>
+</body>
+</html>
